@@ -1,0 +1,41 @@
+Simple wrappers for UIKit classes, written as necessary.
+
+ofxiPhoneAlertView:
+    // ofxiPhoneAlertView
+    // setup the list of buttons
+    vector<string> otherButtons;
+    otherButtons.push_back("Button 1");
+    otherButtons.push_back("Button 2");
+    // the args are: title, message, cancel button title ("" == omitted), vector of other button titles
+    ofxiPhoneAlertView *alert = new ofxiPhoneAlertView("Title,"Here is the alert message.","",otherButtons);
+    // display the alert view
+    alert->show();
+    
+    // I'm using the following methods in update()
+    // test if the alert is visible (bool):
+    alert->isVisible();
+    
+    // test if the alert has been dismissed:
+    alert->isDismissed();
+    
+    // get the selected button (int):
+    alert->getSelectedButton();
+    
+    // if you use several alerts, you can distinguish between them via their title:
+    alert->getTitle();
+    
+    // example logic:
+    switch(alert->getSelectedButton()){
+        case -1:
+            // cancel, or no selection
+            printf("alert = -1");
+            break;
+        case 0:
+            // first, non-cancel button
+            printf("alert = 0");
+            break;
+        case 1:
+            // next button. will be the second button after Cancel
+            printf("alert = 1, ok");
+            break;
+    }
