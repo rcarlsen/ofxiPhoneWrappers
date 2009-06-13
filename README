@@ -7,7 +7,7 @@ ofxiPhoneAlertView:
     otherButtons.push_back("Button 1");
     otherButtons.push_back("Button 2");
     // the args are: title, message, cancel button title ("" == omitted), vector of other button titles
-    ofxiPhoneAlertView *alert = new ofxiPhoneAlertView("Title,"Here is the alert message.","",otherButtons);
+    ofxiPhoneAlertView *alert = new ofxiPhoneAlertView("Title","Here is the alert message.","",otherButtons);
     // display the alert view
     alert->show();
     
