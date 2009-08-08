@@ -54,7 +54,8 @@ ofxiPhoneAlertView::~ofxiPhoneAlertView(){
 }
 
 void ofxiPhoneAlertView::show(){
-    [alertViewDelegate show];
+	// UI events need to occur on the main thread.
+	[alertViewDelegate performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
 }
 
 int ofxiPhoneAlertView::getSelectedButton(){    
